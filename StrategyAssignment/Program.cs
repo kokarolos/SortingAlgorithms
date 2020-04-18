@@ -17,7 +17,12 @@ namespace StrategyAssignment
 
             Console.WriteLine("\n\n\n");
 
-            QuickSort.SortFacade(shirts,(pivot,arrayIndex)=>pivot.Color > arrayIndex.Color);
+            //QuickSort.SortFacade(shirts,(pivot,arrayIndex)=> pivot.Color > arrayIndex.Color);
+            //foreach (var item in shirts)
+            //{
+            //    Console.WriteLine($"{item.Color} {item.Size} {item.Fabric}");
+            //}
+            BucketSort.Sorting(ref shirts);
             foreach (var item in shirts)
             {
                 Console.WriteLine($"{item.Color} {item.Size} {item.Fabric}");

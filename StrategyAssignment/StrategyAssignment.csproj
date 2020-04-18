@@ -46,7 +46,7 @@
     <Compile Include="DataLoader.cs" />
     <Compile Include="MyRandom.cs" />
     <Compile Include="SortingMethods\BubbleSort.cs" />
-    <Compile Include="SortingMethods\BuckerSort.cs" />
+    <Compile Include="SortingMethods\BucketSort.cs" />
     <Compile Include="SortingMethods\ISortingMethod.cs" />
     <Compile Include="PaymentMethods\BankTransfer.cs" />
     <Compile Include="PaymentMethods\Cash.cs" />
