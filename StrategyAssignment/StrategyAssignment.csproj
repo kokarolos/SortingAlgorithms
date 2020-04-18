@@ -47,7 +47,7 @@
     <Compile Include="MyRandom.cs" />
     <Compile Include="SortingMethods\BubbleSort.cs" />
     <Compile Include="SortingMethods\BucketSort.cs" />
-    <Compile Include="SortingMethods\ISortingMethod.cs" />
+    <Compile Include="SortingMethods\SortingMethod.cs" />
     <Compile Include="PaymentMethods\BankTransfer.cs" />
     <Compile Include="PaymentMethods\Cash.cs" />
     <Compile Include="Enums\Color.cs" />

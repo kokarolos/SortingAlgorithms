@@ -1,105 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace StrategyAssignment
 {
-    public class BubbleSort : ISortingMethod
+    public class BubbleSort : SortingMethod
     {
-        public List<TShirt> Sort(TShirt[] tShirts)
-        {
-
-            return null;
-        }
-        public static void SizeAsc(List<TShirt> tShirts)
+        public override void Sort(TShirt[] tShirts,Func<TShirt,TShirt,bool> isSwappable)
         {
             TShirt temp;
-            for (int j = 0; j <= tShirts.Count - 2; j++)
+            for (int j = 0; j <= tShirts.Length - 2; j++)
             {
-                for (int i = 0; i <= tShirts.Count - 2; i++)
+                for (int i = 0; i <= tShirts.Length - 2; i++)
                 {
-                    if (tShirts[i].Size > tShirts[i + 1].Size)
-                    {
-                        temp = tShirts[i + 1];
-                        tShirts[i + 1] = tShirts[i];
-                        tShirts[i] = temp;
-                    }
-                }
-            }
-        }
-
-        public static void SizeDesc(List<TShirt> tShirts)
-        {
-            TShirt temp;
-            for (int j = 0; j <= tShirts.Count - 2; j++)
-            {
-                for (int i = 0; i <= tShirts.Count - 2; i++)
-                {
-                    if (tShirts[i].Size < tShirts[i + 1].Size)
-                    {
-                        temp = tShirts[i + 1];
-                        tShirts[i + 1] = tShirts[i];
-                        tShirts[i] = temp;
-                    }
-                }
-            }
-        }
-        public static void ColorAsc(List<TShirt> tShirts)
-        {
-            TShirt temp;
-            for (int j = 0; j <= tShirts.Count - 2; j++)
-            {
-                for (int i = 0; i <= tShirts.Count - 2; i++)
-                {
-                    if (tShirts[i].Color > tShirts[i + 1].Color)
-                    {
-                        temp = tShirts[i + 1];
-                        tShirts[i + 1] = tShirts[i];
-                        tShirts[i] = temp;
-                    }
-                }
-            }
-        }
-
-        public static void ColorDesc(List<TShirt> tShirts)
-        {
-            TShirt temp;
-            for (int j = 0; j <= tShirts.Count - 2; j++)
-            {
-                for (int i = 0; i <= tShirts.Count - 2; i++)
-                {
-                    if (tShirts[i].Color < tShirts[i + 1].Color)
-                    {
-                        temp = tShirts[i + 1];
-                        tShirts[i + 1] = tShirts[i];
-                        tShirts[i] = temp;
-                    }
-                }
-            }
-        }
-        public static void FabricAsc(List<TShirt> tShirts)
-        {
-            TShirt temp;
-            for (int j = 0; j <= tShirts.Count - 2; j++)
-            {
-                for (int i = 0; i <= tShirts.Count - 2; i++)
-                {
-                    if (tShirts[i].Fabric > tShirts[i + 1].Fabric)
-                    {
-                        temp = tShirts[i + 1];
-                        tShirts[i + 1] = tShirts[i];
-                        tShirts[i] = temp;
-                    }
-                }
-            }
-        }
-
-        public static void FabricDesc(List<TShirt> tShirts)
-        {
-            TShirt temp;
-            for (int j = 0; j <= tShirts.Count - 2; j++)
-            {
-                for (int i = 0; i <= tShirts.Count - 2; i++)
-                {
-                    if (tShirts[i].Fabric < tShirts[i + 1].Fabric)
+                    if(isSwappable(tShirts[i],tShirts[i+1]))
                     {
                         temp = tShirts[i + 1];
                         tShirts[i + 1] = tShirts[i];

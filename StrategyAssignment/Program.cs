@@ -16,17 +16,19 @@ namespace StrategyAssignment
             }
 
             Console.WriteLine("\n\n\n");
+            SortingMethod method = new BubbleSort();
 
-            //QuickSort.SortFacade(shirts,(pivot,arrayIndex)=> pivot.Color > arrayIndex.Color);
-            //foreach (var item in shirts)
-            //{
-            //    Console.WriteLine($"{item.Color} {item.Size} {item.Fabric}");
-            //}
-            BucketSort.Sorting(ref shirts);
+
+            method.Sort(shirts, (pivot, arrayIndex) => pivot.Color > arrayIndex.Color);
             foreach (var item in shirts)
             {
                 Console.WriteLine($"{item.Color} {item.Size} {item.Fabric}");
             }
+            //BucketSort.Sorting(shirts);
+            //foreach (var item in shirts)
+            //{
+            //    Console.WriteLine($"{item.Color} {item.Size} {item.Fabric}");
+            //}
         }
 
     }

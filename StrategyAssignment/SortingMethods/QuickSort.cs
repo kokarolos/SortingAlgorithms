@@ -3,48 +3,40 @@ using System;
 
 namespace StrategyAssignment
 {
-    public class QuickSort : ISortingMethod
+    public class QuickSort : SortingMethod
     {
-        public List<TShirt> Sort(TShirt[] tShirts)
+        public override void Sort(TShirt[] tShirts, Func<TShirt, TShirt, bool> IsSwappable)
         {
-            //TODO
-            return null;
+            QuickSort.SortingProcedure(tShirts, 0, tShirts.Length - 1, IsSwappable);
         }
 
-        static int partition(TShirt[] arr, int low, int high, Func<TShirt, TShirt, bool> IsSwappable)
+        private static int Partition(TShirt[] tShirts, int low, int high, Func<TShirt, TShirt, bool> IsSwappable)
         {
-            TShirt pivot = arr[high];
-
+            TShirt pivot = tShirts[high];
             int i = (low - 1);
             for (int j = low; j < high; j++)
             {
-                if(IsSwappable(pivot, arr[j]))
+                if(IsSwappable(pivot, tShirts[j]))
                 {
                     i++;
-                    TShirt temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
+                    TShirt temp = tShirts[i];
+                    tShirts[i] = tShirts[j];
+                    tShirts[j] = temp;
                 }
             }
-            TShirt temp1 = arr[i + 1];
-            arr[i + 1] = arr[high];
-            arr[high] = temp1;
-
+            TShirt temp1 = tShirts[i + 1];
+            tShirts[i + 1] = tShirts[high];
+            tShirts[high] = temp1;
             return i + 1;
         }
 
-        public static void SortFacade(TShirt[] arr, Func<TShirt, TShirt, bool> IsSwappable)
-        {
-            QuickSort.SortAll(arr, 0, arr.Length - 1, IsSwappable);
-        }
-
-        public static void SortAll(TShirt[] arr, int low, int high, Func<TShirt, TShirt, bool> IsSwappable)
+        private static void SortingProcedure(TShirt[] tShirts, int low, int high, Func<TShirt, TShirt, bool> IsSwappable)
         {
             if (low < high)
             {
-                int pi = partition(arr, low, high, IsSwappable);
-                SortAll(arr, low, pi - 1, IsSwappable);
-                SortAll(arr, pi + 1, high, IsSwappable);
+                int pi = Partition(tShirts, low, high, IsSwappable);
+                SortingProcedure(tShirts, low, pi - 1, IsSwappable);
+                SortingProcedure(tShirts, pi + 1, high, IsSwappable);
             }
 
         }

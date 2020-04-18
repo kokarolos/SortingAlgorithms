@@ -1,14 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace StrategyAssignment
 {
-	public class BucketSort : ISortingMethod
+	public class BucketSort :SortingMethod
 	{
-		public List<TShirt> Sort(TShirt[] tShirts)
+		public override void Sort(TShirt[] tShirts, Func<TShirt, TShirt, bool> IsSwappable)
 		{
-			return null;
+			//TODO
+			throw new NotImplementedException();
 		}
-		public static void Sorting(ref TShirt[] data)
+
+		public static void Sorting(TShirt[] data)
 		{
 			int minValue = (int)data[0].Color;
 			int maxValue = (int)data[0].Color;
@@ -46,5 +49,7 @@ namespace StrategyAssignment
 				}
 			}
 		}
+
+
 	}
 }
