@@ -7,33 +7,30 @@ namespace StrategyAssignment
 	{
 		public override void Sort(TShirt[] tShirts, Func<TShirt, TShirt, bool> IsSwappable)
 		{
-			//TODO
-			throw new NotImplementedException();
+			SortColorAsc(tShirts);
 		}
 
-		public static void Sorting(TShirt[] data)
+		public  static void SortColorAsc(TShirt[] tShirts)
 		{
-			int minValue = (int)data[0].Color;
-			int maxValue = (int)data[0].Color;
+			var minValue = tShirts[0].Color;
+			var maxValue = tShirts[0].Color;
 
-			for (int i = 1; i < data.Length; i++)
+			for (int i = 1; i < tShirts.Length; i++)
 			{
-				if ((int)data[i].Color > maxValue)
-					maxValue = (int)data[i].Color;
-				if ((int)data[i].Color < minValue)
-					minValue = (int)data[i].Color;
+				if (tShirts[i].Color > maxValue)
+					maxValue = tShirts[i].Color;
+				if (tShirts[i].Color < minValue)
+					minValue = tShirts[i].Color;
 			}
-
 			List<TShirt>[] bucket = new List<TShirt>[maxValue - minValue + 1];
-
 			for (int i = 0; i < bucket.Length; i++)
 			{
 				bucket[i] = new List<TShirt>();
 			}
 
-			for (int i = 0; i < data.Length; i++)
+			for (int i = 0; i < tShirts.Length; i++)
 			{
-				bucket[(int)data[i].Color - minValue].Add(data[i]);
+				bucket[tShirts[i].Color - minValue].Add(tShirts[i]);
 			}
 
 			int k = 0;
@@ -43,13 +40,11 @@ namespace StrategyAssignment
 				{
 					for (int j = 0; j < bucket[i].Count; j++)
 					{
-						data[k] = bucket[i][j];
+						tShirts[k] = bucket[i][j];
 						k++;
 					}
 				}
 			}
 		}
-
-
 	}
 }

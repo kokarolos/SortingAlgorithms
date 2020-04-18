@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLoader.cs" />
+    <Compile Include="DisplayManager.cs" />
     <Compile Include="MyRandom.cs" />
     <Compile Include="SortingMethods\BubbleSort.cs" />
     <Compile Include="SortingMethods\BucketSort.cs" />
